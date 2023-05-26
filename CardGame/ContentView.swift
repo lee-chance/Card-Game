@@ -10,10 +10,14 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            Card(suit: .clubs, rank: .ace)
+                .frame(width: 80)
+            
+            LazyVGrid(columns: [GridItem(.adaptive(minimum: 60))]) {
+                ForEach(Card.Rank.allCases, id: \.rawValue) { rank in
+                    CardBuilder(suit: .clubs, rank: rank, color: .black)
+                }
+            }
         }
         .padding()
     }
