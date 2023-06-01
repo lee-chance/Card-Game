@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E1048A32A25C87C0097520C /* ROBGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1048A22A25C87C0097520C /* ROBGameView.swift */; };
+		2E1048A72A25FEAE0097520C /* ROBRobbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1048A62A25FEAE0097520C /* ROBRobbyView.swift */; };
+		2E1048A92A25FEEB0097520C /* ROBConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1048A82A25FEEB0097520C /* ROBConnectionManager.swift */; };
+		2E1048AD2A260C3C0097520C /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1048AC2A260C3C0097520C /* UIApplicationExtension.swift */; };
+		2E1048AF2A2628F20097520C /* ROBContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1048AE2A2628F20097520C /* ROBContentView.swift */; };
+		2E1048B32A262C5E0097520C /* ROBCardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1048B22A262C5E0097520C /* ROBCardExtension.swift */; };
 		2EF1BCFD2A1EFDA6003DA42E /* CardGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1BCFC2A1EFDA6003DA42E /* CardGameApp.swift */; };
 		2EF1BCFF2A1EFDA6003DA42E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1BCFE2A1EFDA6003DA42E /* ContentView.swift */; };
 		2EF1BD012A1EFDA7003DA42E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1BD002A1EFDA7003DA42E /* Assets.xcassets */; };
@@ -15,6 +21,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E1048A22A25C87C0097520C /* ROBGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ROBGameView.swift; sourceTree = "<group>"; };
+		2E1048A62A25FEAE0097520C /* ROBRobbyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ROBRobbyView.swift; sourceTree = "<group>"; };
+		2E1048A82A25FEEB0097520C /* ROBConnectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ROBConnectionManager.swift; sourceTree = "<group>"; };
+		2E1048AA2A2601EE0097520C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		2E1048AC2A260C3C0097520C /* UIApplicationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
+		2E1048AE2A2628F20097520C /* ROBContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ROBContentView.swift; sourceTree = "<group>"; };
+		2E1048B22A262C5E0097520C /* ROBCardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ROBCardExtension.swift; sourceTree = "<group>"; };
 		2EF1BCF92A1EFDA6003DA42E /* CardGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CardGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EF1BCFC2A1EFDA6003DA42E /* CardGameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameApp.swift; sourceTree = "<group>"; };
 		2EF1BCFE2A1EFDA6003DA42E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -34,6 +47,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E1048A12A25C8710097520C /* RedOrBlack */ = {
+			isa = PBXGroup;
+			children = (
+				2E1048AE2A2628F20097520C /* ROBContentView.swift */,
+				2E1048A22A25C87C0097520C /* ROBGameView.swift */,
+				2E1048A62A25FEAE0097520C /* ROBRobbyView.swift */,
+				2E1048A82A25FEEB0097520C /* ROBConnectionManager.swift */,
+				2E1048B22A262C5E0097520C /* ROBCardExtension.swift */,
+			);
+			path = RedOrBlack;
+			sourceTree = "<group>";
+		};
+		2E1048AB2A260C2A0097520C /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				2E1048AC2A260C3C0097520C /* UIApplicationExtension.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		2EF1BCF02A1EFDA6003DA42E = {
 			isa = PBXGroup;
 			children = (
@@ -53,9 +86,12 @@
 		2EF1BCFB2A1EFDA6003DA42E /* CardGame */ = {
 			isa = PBXGroup;
 			children = (
+				2E1048AA2A2601EE0097520C /* Info.plist */,
 				2EF1BCFC2A1EFDA6003DA42E /* CardGameApp.swift */,
 				2EF1BCFE2A1EFDA6003DA42E /* ContentView.swift */,
+				2E1048A12A25C8710097520C /* RedOrBlack */,
 				2EF1BD0A2A1EFE1F003DA42E /* Card.swift */,
+				2E1048AB2A260C2A0097520C /* Utils */,
 				2EF1BD002A1EFDA7003DA42E /* Assets.xcassets */,
 				2EF1BD022A1EFDA7003DA42E /* Preview Content */,
 			);
@@ -140,9 +176,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E1048A32A25C87C0097520C /* ROBGameView.swift in Sources */,
 				2EF1BCFF2A1EFDA6003DA42E /* ContentView.swift in Sources */,
+				2E1048A92A25FEEB0097520C /* ROBConnectionManager.swift in Sources */,
 				2EF1BD0B2A1EFE1F003DA42E /* Card.swift in Sources */,
+				2E1048B32A262C5E0097520C /* ROBCardExtension.swift in Sources */,
+				2E1048AF2A2628F20097520C /* ROBContentView.swift in Sources */,
+				2E1048AD2A260C3C0097520C /* UIApplicationExtension.swift in Sources */,
 				2EF1BCFD2A1EFDA6003DA42E /* CardGameApp.swift in Sources */,
+				2E1048A72A25FEAE0097520C /* ROBRobbyView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,6 +316,7 @@
 				DEVELOPMENT_TEAM = 2PJ23MZ7RT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CardGame/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -303,6 +346,7 @@
 				DEVELOPMENT_TEAM = 2PJ23MZ7RT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CardGame/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

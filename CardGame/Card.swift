@@ -54,6 +54,25 @@ struct Card {
     }
 }
 
+extension Card: CustomStringConvertible {
+    var description: String {
+        "\(suit) \(rank)"
+    }
+    
+    init?(description: String) {
+        let components = description.components(separatedBy: " ")
+        guard
+            let first = components.first,
+            let last = components.last,
+            let rankRawValue = Int(last),
+            let suit = Suit(rawValue: Character(first)),
+            let rank = Rank(rawValue: rankRawValue)
+        else { return nil }
+        
+        self.init(suit: suit, rank: rank)
+    }
+}
+
 extension Card: View {
     var body: some View {
         GeometryReader { geometry in

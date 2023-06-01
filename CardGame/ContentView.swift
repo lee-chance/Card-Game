@@ -7,19 +7,36 @@
 
 import SwiftUI
 
+enum Game: Identifiable, CaseIterable {
+    case redOrBlack
+    
+    var id: Self { self }
+    
+    var name: String {
+        switch self {
+        case .redOrBlack: return "Red or Black"
+        }
+    }
+}
+
 struct ContentView: View {
+    @State private var game: Game?
+    
     var body: some View {
-        VStack {
-            Card(suit: .clubs, rank: .ace)
-                .frame(width: 80)
-            
-            LazyVGrid(columns: [GridItem(.adaptive(minimum: 60))]) {
-                ForEach(Card.Rank.allCases, id: \.rawValue) { rank in
-                    CardBuilder(suit: .clubs, rank: rank, color: .black)
-                }
+        List(Game.allCases) { game in
+            Button(game.name) {
+                self.game = game
             }
         }
-        .padding()
+        .fullScreenCover(item: $game, content: openGame)
+    }
+    
+    @ViewBuilder
+    func openGame(_ game: Game) -> some View {
+        switch game {
+        case .redOrBlack:
+            ROBContentView()
+        }
     }
 }
 
