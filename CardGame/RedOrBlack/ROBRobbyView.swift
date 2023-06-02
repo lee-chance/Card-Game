@@ -43,7 +43,7 @@ struct ROBRobbyView: View {
             List(connection.rooms, id: \.self) { room in
                 Text(room.displayName)
                     .onTapGesture {
-                        connection.invitePeer(room, to: .redOrBlack)
+                        connection.invitePeer(room)
                     }
             }
         }
@@ -53,8 +53,8 @@ struct ROBRobbyView: View {
         .onDisappear {
             connection.stop()
         }
-        .alert("Received an invite from \(connection.host?.displayName ?? "ERR")!", isPresented: $connection.receivedInvite) {
-            Button("Accept", role: .destructive) {
+        .alert("Received an invite from \(connection.host?.displayName ?? "ERROR")!", isPresented: $connection.receivedInvite) {
+            Button("Accept") {
                 if (connection.invitationHandler != nil) {
                     connection.invitationHandler!(true, connection.session)
                 }
@@ -63,6 +63,7 @@ struct ROBRobbyView: View {
             Button("Cancel", role: .cancel) {
                 if (connection.invitationHandler != nil) {
                     connection.invitationHandler!(false, nil)
+                    connection.host = nil
                 }
             }
         }

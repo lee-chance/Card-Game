@@ -13,6 +13,7 @@
 		2E1048AD2A260C3C0097520C /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1048AC2A260C3C0097520C /* UIApplicationExtension.swift */; };
 		2E1048AF2A2628F20097520C /* ROBContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1048AE2A2628F20097520C /* ROBContentView.swift */; };
 		2E1048B32A262C5E0097520C /* ROBCardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1048B22A262C5E0097520C /* ROBCardExtension.swift */; };
+		2EE5AE732A29CB3D00AEC0D8 /* ROBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE5AE722A29CB3D00AEC0D8 /* ROBModel.swift */; };
 		2EF1BCFD2A1EFDA6003DA42E /* CardGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1BCFC2A1EFDA6003DA42E /* CardGameApp.swift */; };
 		2EF1BCFF2A1EFDA6003DA42E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1BCFE2A1EFDA6003DA42E /* ContentView.swift */; };
 		2EF1BD012A1EFDA7003DA42E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1BD002A1EFDA7003DA42E /* Assets.xcassets */; };
@@ -28,6 +29,7 @@
 		2E1048AC2A260C3C0097520C /* UIApplicationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
 		2E1048AE2A2628F20097520C /* ROBContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ROBContentView.swift; sourceTree = "<group>"; };
 		2E1048B22A262C5E0097520C /* ROBCardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ROBCardExtension.swift; sourceTree = "<group>"; };
+		2EE5AE722A29CB3D00AEC0D8 /* ROBModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ROBModel.swift; sourceTree = "<group>"; };
 		2EF1BCF92A1EFDA6003DA42E /* CardGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CardGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EF1BCFC2A1EFDA6003DA42E /* CardGameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameApp.swift; sourceTree = "<group>"; };
 		2EF1BCFE2A1EFDA6003DA42E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -51,8 +53,9 @@
 			isa = PBXGroup;
 			children = (
 				2E1048AE2A2628F20097520C /* ROBContentView.swift */,
-				2E1048A22A25C87C0097520C /* ROBGameView.swift */,
 				2E1048A62A25FEAE0097520C /* ROBRobbyView.swift */,
+				2E1048A22A25C87C0097520C /* ROBGameView.swift */,
+				2EE5AE722A29CB3D00AEC0D8 /* ROBModel.swift */,
 				2E1048A82A25FEEB0097520C /* ROBConnectionManager.swift */,
 				2E1048B22A262C5E0097520C /* ROBCardExtension.swift */,
 			);
@@ -185,6 +188,7 @@
 				2E1048AD2A260C3C0097520C /* UIApplicationExtension.swift in Sources */,
 				2EF1BCFD2A1EFDA6003DA42E /* CardGameApp.swift in Sources */,
 				2E1048A72A25FEAE0097520C /* ROBRobbyView.swift in Sources */,
+				2EE5AE732A29CB3D00AEC0D8 /* ROBModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +326,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -352,6 +357,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-struct Card {
+struct Card: Codable, Equatable {
     let suit: Suit
     let rank: Rank
     
-    enum Suit: Character, CaseIterable {
+    enum Suit: Character, CaseIterable, Codable {
         case spades = "♠︎", hearts = "♥", diamonds = "♦", clubs = "♣︎"
         
         var color: Color {
@@ -22,9 +22,21 @@ struct Card {
                 return .red
             }
         }
+        
+        var isBlack: Bool {
+            color == .black
+        }
+        
+        var isRed: Bool {
+            color == .red
+        }
     }
     
-    enum Rank: Int, CaseIterable {
+    enum Rank: Int, Comparable, CaseIterable, Codable {
+        static func < (lhs: Card.Rank, rhs: Card.Rank) -> Bool {
+            lhs.rawValue < rhs.rawValue
+        }
+        
         case ace = 1, two, three, four, five, six, seven, eight, nine, ten, jack, queen, king
         
         var symbol: String {

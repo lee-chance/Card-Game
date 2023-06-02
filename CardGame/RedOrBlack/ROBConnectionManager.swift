@@ -10,16 +10,14 @@ import MultipeerConnectivity
 
 final class ROBConnectionManager: NSObject, ObservableObject {
     let session: MCSession
-    private let myPeerID = MCPeerID(displayName: UIDevice.current.name)
+    private let myPeerID: MCPeerID
     private let handler: (() -> Void)?
     
-    private static let service = "ROB-service"
+    private static let service = "rob-service"
     private var nearbyServiceAdvertiser: MCNearbyServiceAdvertiser
     
     @Published var rooms: [MCPeerID] = []
     private var nearbyServiceBrowser: MCNearbyServiceBrowser
-    
-    private var gameToSend: Game?
     
     @Published var receivedCard: Card?
     @Published var paired = false
@@ -27,7 +25,13 @@ final class ROBConnectionManager: NSObject, ObservableObject {
     @Published var host: MCPeerID?
     @Published var invitationHandler: ((Bool, MCSession?) -> Void)?
     
+    var isHostPlayer: Bool {
+        host == nil
+    }
+    
     init(_ handler: (() -> Void)? = nil) {
+        self.myPeerID = MCPeerID(displayName: UIDevice.current.name)
+        
         session = MCSession(
             peer: myPeerID,
             securityIdentity: nil,
@@ -63,22 +67,25 @@ final class ROBConnectionManager: NSObject, ObservableObject {
         nearbyServiceBrowser.stopBrowsingForPeers()
     }
     
-    func invitePeer(_ peerID: MCPeerID, to game: Game) {
-        gameToSend = game
-        let context = game.name.data(using: .utf8)
+    func exit() {
+        session.disconnect()
+        host = nil
+    }
+    
+    func invitePeer(_ peerID: MCPeerID) {
         nearbyServiceBrowser.invitePeer(
             peerID,
             to: session,
-            withContext: context,
+            withContext: nil,
             timeout: TimeInterval(120)
         )
     }
     
-    func send(_ card: Card, to peer: MCPeerID) {
+    func send(_ card: Card) {
         guard !session.connectedPeers.isEmpty else { return }
         
         do {
-            let cardData = card.description.data(using: .utf8)!
+            let cardData = try JSONEncoder().encode(card)
             let peers = session.connectedPeers
             try session.send(cardData, toPeers: peers, with: .reliable)
         } catch {
@@ -171,12 +178,11 @@ extension ROBConnectionManager: MCSessionDelegate {
         didReceive data: Data,
         fromPeer peerID: MCPeerID
     ) {
-        guard
-            let cardDescription = String(data: data, encoding: .utf8),
-            let card = Card(description: cardDescription)
-        else { return }
+        guard let card = try? JSONDecoder().decode(Card.self, from: data) else {
+            return
+        }
+        
         DispatchQueue.main.async {
-            print("card: \(card)")
             self.receivedCard = card
         }
     }
