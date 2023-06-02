@@ -11,14 +11,12 @@ import MultipeerConnectivity
 final class ROBConnectionManager: NSObject, ObservableObject {
     let session: MCSession
     private let myPeerID: MCPeerID
-    private let handler: (() -> Void)?
     
     private static let service = "rob-service"
     private var nearbyServiceAdvertiser: MCNearbyServiceAdvertiser
-    
-    @Published var rooms: [MCPeerID] = []
     private var nearbyServiceBrowser: MCNearbyServiceBrowser
     
+    @Published var rooms: [MCPeerID] = []
     @Published var receivedCard: Card?
     @Published var paired = false
     @Published var receivedInvite = false
@@ -29,8 +27,8 @@ final class ROBConnectionManager: NSObject, ObservableObject {
         host == nil
     }
     
-    init(_ handler: (() -> Void)? = nil) {
-        self.myPeerID = MCPeerID(displayName: UIDevice.current.name)
+    override init() {
+        myPeerID = MCPeerID(displayName: UIDevice.current.name)
         
         session = MCSession(
             peer: myPeerID,
@@ -48,8 +46,6 @@ final class ROBConnectionManager: NSObject, ObservableObject {
             peer: myPeerID,
             serviceType: ROBConnectionManager.service
         )
-        
-        self.handler = handler
         
         super.init()
         session.delegate = self
