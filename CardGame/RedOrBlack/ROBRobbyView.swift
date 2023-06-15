@@ -12,8 +12,6 @@ struct ROBRobbyView: View {
     
     @Environment(\.dismiss) private var dismiss
     
-    @State private var isInvitingGame = false
-    
     var body: some View {
         VStack(spacing: 0) {
             HStack {
@@ -40,11 +38,17 @@ struct ROBRobbyView: View {
             .padding(.horizontal)
             .frame(height: 48)
             
-            List(connection.rooms, id: \.self) { room in
-                Text(room.displayName)
-                    .onTapGesture {
-                        connection.invitePeer(room)
-                    }
+            if connection.rooms.count > 0 {
+                List(connection.rooms, id: \.self) { room in
+                    Text(room.displayName)
+                        .onTapGesture {
+                            connection.invitePeer(room)
+                        }
+                }
+            } else {
+                List {
+                    Text("Please Wait...")
+                }
             }
         }
         .onAppear {
