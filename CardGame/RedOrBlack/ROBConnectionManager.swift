@@ -27,8 +27,8 @@ final class ROBConnectionManager: NSObject, ObservableObject {
         host == nil
     }
     
-    override init() {
-        myPeerID = MCPeerID(displayName: UIDevice.current.name)
+    init(username: String) {
+        myPeerID = MCPeerID(displayName: username)
         
         session = MCSession(
             peer: myPeerID,

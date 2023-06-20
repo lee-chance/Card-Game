@@ -49,7 +49,7 @@ struct GameListView: View {
     func openGame(_ game: Game) -> some View {
         switch game {
         case .redOrBlack:
-            ROBContentView()
+            ROBContentView(username: nickname)
         }
     }
 }

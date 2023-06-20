@@ -53,6 +53,7 @@ struct ROBGameView: View {
                     
                     if let card = myHand.card {
                         card
+                            .shadow(radius: result == .win ? 10 : 0)
                     } else {
                         CardBack(color: .white)
                     }
@@ -93,6 +94,7 @@ struct ROBGameView: View {
                     
                     if let card = otherHand.card {
                         CardBack(color: card.suit.color)
+                            .shadow(radius: result == .lose ? 10 : 0)
                     } else {
                         CardBack(color: .white)
                     }
@@ -166,5 +168,6 @@ struct ROBGameView: View {
 struct ROBGameView_Previews: PreviewProvider {
     static var previews: some View {
         ROBGameView()
+            .environmentObject(ROBConnectionManager(username: "Previewer"))
     }
 }

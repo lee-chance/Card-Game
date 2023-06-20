@@ -8,7 +8,11 @@
 import SwiftUI
 
 struct ROBContentView: View {
-    @StateObject private var connection = ROBConnectionManager()
+    @StateObject private var connection: ROBConnectionManager
+    
+    init(username: String) {
+        self._connection = StateObject(wrappedValue: ROBConnectionManager(username: username))
+    }
     
     var body: some View {
         Group {
@@ -24,6 +28,6 @@ struct ROBContentView: View {
 
 struct ROBContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ROBContentView()
+        ROBContentView(username: "Previewer")
     }
 }

@@ -77,6 +77,6 @@ struct ROBRobbyView: View {
 struct ROBRobbyView_Previews: PreviewProvider {
     static var previews: some View {
         ROBRobbyView()
-            .environmentObject(ROBConnectionManager())
+            .environmentObject(ROBConnectionManager(username: "Previewer"))
     }
 }
